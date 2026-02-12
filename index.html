@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="For Life Travel & Retreats - Transformative wellness and yoga retreats designed for the mind, body, and soul.">
+    <title>For Life Travel & Retreats | Wellness and Yoga Retreats</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CSS VARIABLES === */
+        :root {
+            --sage-green: #8B9A7D;
+            --sage-dark: #6B7A5D;
+            --warm-brown: #9C8B7A;
+            --dark-brown: #5C4D3C;
+            --cream: #F5F0E8;
+            --sage-light: #A8B89A;
+            --cream-dark: #EBE4D8;
+            --white: #ffffff;
+            --text-dark: #5C4D3C;
+            --text-light: #7A6B5A;
+            --text-muted: #9C8B7A;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Nunito Sans', 'Segoe UI', sans-serif;
+        }
+
+        /* === RESET === */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-brown);
+            line-height: 1.7;
+            background: var(--cream);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--dark-brown);
+        }
+
+        /* === NAVIGATION === */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            transition: all 0.4s ease;
+        }
+
+        .nav.scrolled {
+            background: var(--white);
+            padding: 0.25rem 3rem;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .nav-logo img {
+            height: 140px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled .nav-logo img {
+            height: 80px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--white);
+            letter-spacing: 0.3px;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--warm-brown);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav.scrolled .nav-links a {
+            color: var(--dark-brown);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled .mobile-menu-btn span {
+            background: var(--dark-brown);
+        }
+
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--sage-green) 0%, var(--sage-dark) 100%);
+            color: var(--white);
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('BeachWaterCircle.png') center/cover;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 850px;
+        }
+
+        .hero-tagline {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--warm-brown);
+            color: var(--white);
+            border-color: var(--warm-brown);
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-brown);
+            border-color: var(--dark-brown);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--sage-green);
+        }
+
+        .btn-sage {
+            background: var(--sage-green);
+            color: var(--white);
+            border-color: var(--sage-green);
+        }
+
+        .btn-sage:hover {
+            background: var(--sage-dark);
+            border-color: var(--sage-dark);
+        }
+
+        .link-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--dark-brown);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--dark-brown);
+            padding-bottom: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .link-arrow span {
+            transition: transform 0.3s ease;
+        }
+
+        .link-arrow:hover {
+            color: var(--sage-green);
+            border-color: var(--sage-green);
+        }
+
+        .link-arrow:hover span {
+            transform: translateX(5px);
+        }
+
+        .btn-large {
+            padding: 1.25rem 3rem;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+
+        .scroll-arrow {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow svg {
+            width: 12px;
+            height: 12px;
+            stroke: var(--white);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+
+        /* === SECTIONS === */
+        section {
+            padding: 7rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sage-green);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* === ABOUT === */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--sage-green);
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content h2 {
+            font-size: 2.25rem;
+            margin-bottom: 2rem;
+            line-height: 1.35;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .about-content p strong {
+            color: var(--dark-brown);
+            font-weight: 600;
+        }
+
+        .founder-signature {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--sage-green);
+            margin-top: 2rem;
+        }
+
+        /* === WHO WE SERVE === */
+        .serve {
+            background: var(--cream);
+        }
+
+        .serve-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .serve-card {
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+
+        .serve-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            border-color: var(--sage-light);
+        }
+
+        .serve-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .serve-icon-svg {
+            background: transparent;
+            width: 80px;
+            height: 80px;
+        }
+
+        .serve-icon-svg svg {
+            width: 100%;
+            height: 100%;
+            color: var(--sage-green);
+        }
+
+        .serve-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark-brown);
+        }
+
+        .serve-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* === HOW IT WORKS === */
+        .process {
+            background: var(--sage-green);
+            color: var(--white);
+        }
+
+        .process .section-label {
+            color: var(--cream);
+            opacity: 0.9;
+        }
+
+        .process .section-title {
+            color: var(--white);
+        }
+
+        .process .section-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.5rem;
+            top: 2rem;
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--warm-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .process-step p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* === FACILITATORS === */
+        .facilitators {
+            background: var(--cream);
+            padding: 7rem 2rem;
+        }
+
+        .facilitators-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 1rem;
+        }
+
+        .facilitator-card {
+            text-align: center;
+        }
+
+        .facilitator-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .facilitator-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .facilitator-image.zoom-in img {
+            transform: scale(1.8);
+            object-position: 35% 25%;
+        }
+
+        .facilitator-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .facilitator-title {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--warm-brown);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .facilitator-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .facilitator-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--cream-dark);
+            border-radius: 50%;
+            color: var(--sage-green);
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .facilitator-instagram:hover {
+            background: var(--sage-green);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* === RETREATS === */
+        .retreats {
+            background: var(--white);
+        }
+
+        .retreats-grid {
+            display: grid;
+            gap: 4rem;
+        }
+
+        .retreat-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--cream);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+        }
+
+        .retreat-card:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .retreat-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .retreat-card:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .retreat-image {
+            position: relative;
+            min-height: 400px;
+        }
+
+        .retreat-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .retreat-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--sage-green);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+
+        .retreat-content {
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .retreat-date {
+            font-size: 0.85rem;
+            color: var(--sage-green);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .retreat-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-brown);
+        }
+
+        .retreat-location {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .retreat-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .retreat-content .btn {
+            align-self: flex-start;
+        }
+
+        /* === HOST A RETREAT === */
+        .host {
+            background: var(--cream-dark);
+        }
+
+        .host-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .host-content h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .host-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .host-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .host-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .host-features li::before {
+            content: '✓';
+            color: var(--sage-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .host-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* === TESTIMONIAL === */
+        .testimonial {
+            background: var(--warm-brown);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial blockquote {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial cite {
+            font-style: normal;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* === CLIENT TESTIMONIALS SLIDESHOW === */
+        .client-testimonials {
+            background: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .testimonial-slides {
+            position: relative;
+            min-height: 250px;
+        }
+
+        .testimonial-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            padding: 2rem;
+        }
+
+        .testimonial-slide.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        .testimonial-slide blockquote {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            font-style: italic;
+            line-height: 1.8;
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-slide cite {
+            font-style: normal;
+            font-size: 1rem;
+            color: var(--sage-green);
+            font-weight: 600;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--sage-green);
+            opacity: 0.3;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-dots .dot.active {
+            opacity: 1;
+        }
+
+        .testimonial-dots .dot:hover {
+            opacity: 0.7;
+        }
+
+        /* === CONTACT === */
+        .contact {
+            background: var(--cream);
+            padding: 6rem 2rem;
+        }
+
+        .contact-centered {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 400;
+        }
+
+        .contact-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info-row {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--warm-brown);
+            font-weight: 500;
+        }
+
+        .contact-value {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            color: var(--dark-brown);
+            transition: color 0.3s ease;
+        }
+
+        .contact-value:hover {
+            color: var(--sage-green);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--dark-brown);
+            color: var(--white);
+            padding: 5rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-tagline {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+            z-index: 10;
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-social a svg {
+            pointer-events: none;
+        }
+
+        .footer-social a:hover {
+            background: var(--warm-brown);
+        }
+
+        .footer-links h4 {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* === ANIMATIONS === */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .nav {
+                padding: 1rem 2rem;
+            }
+
+            .about-grid,
+            .host-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .serve-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .facilitators-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.25rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                color: var(--dark-brown) !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .about-image::before {
+                display: none;
+            }
+
+            .about-image img {
+                height: 400px;
+            }
+
+            .facilitators-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .facilitator-image {
+                width: 180px;
+                height: 180px;
+            }
+
+            .retreat-card {
+                grid-template-columns: 1fr;
+            }
+
+            .retreat-card:nth-child(even) {
+                direction: ltr;
+            }
+
+            .retreat-image {
+                min-height: 300px;
+            }
+
+            .retreat-content {
+                padding: 2.5rem;
+            }
+
+            .contact-info-row {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 5rem 1.5rem;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#hero" class="nav-logo">
+            <img src="forlife-logo.png" alt="For Life Travel & Retreats">
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#serve">Who We Serve</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="#host">Host a Retreat</a></li>
+            <li><a href="https://www.forlifetravelandcruises.com/BlogPosts/" target="_blank">Blog</a></li>
+            <li><a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <span class="hero-tagline">Wellness & Yoga Retreats</span>
+            <h1>Travel with <em>Intention</em></h1>
+            <p class="hero-subtitle">Transformational group travel, intentionally designed and professionally coordinated. More than travel — a transformational experience.</p>
+            <div class="hero-buttons">
+                <a href="#retreats" class="btn btn-primary">Explore Destinations</a>
+                <a href="#host" class="btn btn-outline">Host a Retreat</a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+            </div>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <img src="ClaraRedDressPalms.jpeg" alt="Clara Cortez - Founder of For Life Travel & Retreats">
+                </div>
+                <div class="about-content fade-in">
+                    <span class="section-label">Our Story</span>
+                    <h2>Founded on a passion for intentional travel and meaningful connections</h2>
+                    <p>For Life Travel & Retreats was born from a deep belief that travel can be transformative for the mind, body, and soul when designed with love, alignment, and purpose.</p>
+                    <p>Our goal is to support retreat leaders and travelers by managing the logistics — so they can focus on the experience. We create spaces where there is no judgment, where diverse groups come together to connect and find joy.</p>
+                    <p>Every journey allows you to learn something new about yourself by unplugging and reconnecting. The outcome is to be a better version of yourself — more connected to yourself, others, and culturally grounded.</p>
+                    <p class="founder-signature">— Clara Cortez, Founder</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Serve Section -->
+    <section class="serve" id="serve">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label">Who We Serve</span>
+                <h2 class="section-title">Intentional Travel for Every Journey</h2>
+                <p class="section-subtitle">Whether you're seeking transformation, looking to lead a retreat, or wanting aligned group travel, we're here to guide you.</p>
+            </div>
+            <div class="serve-grid">
+                <div class="serve-card fade-in">
+                    <div class="serve-icon serve-icon-svg">
+                        <svg viewBox="0 0 70 60" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M5 35 Q35 5 65 35"/>
+                            <line x1="5" y1="35" x2="5" y2="50"/>
+                            <line x1="65" y1="35" x2="65" y2="50"/>
+                            <line x1="5" y1="50" x2="65" y2="50"/>
+                            <circle cx="35" cy="25" r="6"/>
+                            <rect x="15" y="38" width="12" height="12"/>
+                            <rect x="43" y="38" width="12" height="12"/>
+                        </svg>
+                    </div>
+                    <h3>Retreat Participants</h3>
+                    <p>Intentional travel experiences designed for rest, connection, and personal growth. Join curated retreats that nourish your mind, body, and soul.</p>
+                </div>
+                <div class="serve-card fade-in">
+                    <div class="serve-icon serve-icon-svg">
+                        <svg viewBox="0 0 60 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <ellipse cx="30" cy="45" rx="22" ry="32"/>
+                            <circle cx="30" cy="25" r="8"/>
+                            <line x1="30" y1="33" x2="30" y2="50"/>
+                        </svg>
+                    </div>
+                    <h3>Yoga & Wellness Leaders</h3>
+                    <p>Bring your retreat vision to life without the overwhelm of logistics. We handle everything so you can focus on your participants.</p>
+                </div>
+                <div class="serve-card fade-in">
+                    <div class="serve-icon serve-icon-svg">
+                        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="25" cy="40" r="18"/>
+                            <circle cx="20" cy="36" r="3"/>
+                            <circle cx="30" cy="36" r="3"/>
+                            <path d="M19 48 Q25 52 31 48"/>
+                            <circle cx="55" cy="40" r="18"/>
+                            <circle cx="50" cy="36" r="3"/>
+                            <circle cx="60" cy="36" r="3"/>
+                            <path d="M49 48 Q55 52 61 48"/>
+                        </svg>
+                    </div>
+                    <h3>Groups & Communities</h3>
+                    <p>Aligned group travel experiences curated with purpose and professionalism. Perfect for organizations, teams, and communities.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://www.forlifetravelandcruises.com/pages/upcoming-retreats-45483" target="_blank" class="btn btn-primary">View & Reserve Retreats</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label">How It Works</span>
+                <h2 class="section-title">Your Journey to Transformation</h2>
+                <p class="section-subtitle">From discovery to departure, we make the process seamless and stress-free.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Discover or Create</h3>
+                    <p>Browse our upcoming retreats or share your vision for a custom experience tailored to your goals.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>We Coordinate</h3>
+                    <p>We handle travel, logistics, venue selection, and all the details — so you don't have to.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Transform</h3>
+                    <p>You travel, connect, and return home with new perspectives, friendships, and inner peace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Past Facilitators Section -->
+    <section class="facilitators" id="facilitators">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label">Meet Our Past Facilitators</span>
+                <h2 class="section-title">Guided by Experience & Heart</h2>
+                <p class="section-subtitle">Each retreat and travel experience is hosted by the best teachers and facilitators in their areas of expertise. Here are some of the incredible women who have partnered with us to create transformational experiences.</p>
+            </div>
+            <div class="facilitators-grid">
+                <div class="facilitator-card fade-in">
+                    <div class="facilitator-image">
+                        <img src="ClaraHomeOffice2.jpeg" alt="Clara Cortez" style="transform: scale(1.4); object-position: center 20%;">
+                    </div>
+                    <h3>Clara Cortez</h3>
+                    <span class="facilitator-title">FOUNDER</span>
+                    <p>Over 20 years in the travel industry, passionate about connecting people to destinations that make them feel something.</p>
+                    <a href="https://www.instagram.com/forlifetravelandretreats/" target="_blank" class="facilitator-instagram" aria-label="Clara's Instagram">
+                        <svg viewBox="0 0 32 32" fill="currentColor" width="22" height="22">
+                            <path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
+                            <path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
+                            <path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="facilitator-card fade-in">
+                    <div class="facilitator-image">
+                        <img src="CynthiaWineSniff2025.png" alt="Cynthia Betancourt">
+                    </div>
+                    <h3>Cynthia Betancourt</h3>
+                    <span class="facilitator-title">ADVANCED SOMMELIER</span>
+                    <p>Award-winning wine professional with expertise in luxury hospitality and certifications from the Court of Master Sommeliers.</p>
+                    <a href="https://www.instagram.com/sommmomofpines/" target="_blank" class="facilitator-instagram" aria-label="Cynthia's Instagram">
+                        <svg viewBox="0 0 32 32" fill="currentColor" width="22" height="22">
+                            <path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
+                            <path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
+                            <path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="facilitator-card fade-in">
+                    <div class="facilitator-image">
+                        <img src="viviana-gago.png" alt="Viviana Gago">
+                    </div>
+                    <h3>Viviana Gago</h3>
+                    <span class="facilitator-title">YOGA TEACHER</span>
+                    <p>Specializing in mindfulness-based, trauma-aware, and accessible yoga practices. Creating inclusive spaces for all levels.</p>
+                    <a href="https://www.instagram.com/yogitawithvivita/" target="_blank" class="facilitator-instagram" aria-label="Viviana's Instagram">
+                        <svg viewBox="0 0 32 32" fill="currentColor" width="22" height="22">
+                            <path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
+                            <path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
+                            <path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="facilitator-card fade-in">
+                    <div class="facilitator-image">
+                        <img src="yajaira-laluz.png" alt="Yajaira 'Yaya' La Luz">
+                    </div>
+                    <h3>Yajaira "Yaya" La Luz</h3>
+                    <span class="facilitator-title">WELLNESS FACILITATOR</span>
+                    <p>200-hour RYT with 20 years of practice. Certified in Yin Yoga, sound healing, Reiki Mastery, and trauma-informed practices.</p>
+                    <a href="https://www.instagram.com/thelovingpeacewellness?igsh=ZjNkaGdhYjJmdWFi" target="_blank" class="facilitator-instagram" aria-label="Yajaira's Instagram">
+                        <svg viewBox="0 0 32 32" fill="currentColor" width="22" height="22">
+                            <path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
+                            <path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
+                            <path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retreats Section -->
+    <section class="retreats" id="retreats">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label">Upcoming Experiences</span>
+                <h2 class="section-title">Explore Our Destinations</h2>
+                <p class="section-subtitle">Discover transformational retreat experiences in beautiful destinations around the world. Each journey is designed to help you reconnect with yourself. Let's explore the right retreat for you.</p>
+            </div>
+            <div class="retreats-grid">
+                <!-- Retreat 1 -->
+                <div class="retreat-card fade-in">
+                    <div class="retreat-image">
+                        
+                        <img src="destination1.webp" alt="Bali retreat destination">
+                    </div>
+                    <div class="retreat-content">
+                        <h3>Bali Reset + Flow</h3>
+                        <p>Known as the Island of the Gods, Bali carries a gentle, heart-opening energy that naturally supports reflection, healing, and presence. Lush jungles, serene beaches, and sacred temples create an atmosphere where the nervous system softens and mindfulness becomes effortless—a place that invites you to slow down, breathe deeply, and reconnect with yourself. World-class wellness sanctuaries, nourishing cuisine, and thoughtfully designed spaces allow you to feel both deeply cared for and profoundly inspired, leaving you open-hearted, grounded, and beautifully restored.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Retreat 2 -->
+                <div class="retreat-card fade-in">
+                    <div class="retreat-image">
+                        
+                        <img src="destination2.png" alt="Costa Rica retreat destination">
+                    </div>
+                    <div class="retreat-content">
+                        <h3>Costa Rica Wellness + Glow</h3>
+                        <p>A lush sanctuary where nature and wellness intertwine, Costa Rica invites presence, reflection, and deep restoration. From misty rainforests and cascading waterfalls to pristine beaches and vibrant wildlife, every landscape supports nervous system reset and grounded renewal. Move through sunrise yoga overlooking tropical vistas, enjoy guided meditation beside flowing rivers, or immerse yourself in mindful forest walks. Boutique eco-lodges, nourishing cuisine, and thoughtfully curated wellness experiences create a seamless balance of comfort and authenticity—leaving you restored, inspired, and deeply connected to yourself and the vibrant energy of this extraordinary destination.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Retreat 3 -->
+                <div class="retreat-card fade-in">
+                    <div class="retreat-image">
+                        
+                        <img src="destination3.png" alt="Chile retreat destination">
+                    </div>
+                    <div class="retreat-content">
+                        <h3>Chile Presence + Renewal</h3>
+                        <p>From the cultural elegance of Santiago to the vast, otherworldly stillness of the Atacama Desert, Chile invites spaciousness—internally and externally. Atacama's silence, expansive skies, and ancient terrain create an unparalleled environment for mindfulness, yoga, meditation, and sound healing, where the nervous system naturally softens and clarity emerges. Paired with the pristine beauty of the Galápagos Islands, this journey becomes a celebration of nature in its purest form—untouched landscapes, rhythmic ocean energy, and extraordinary wildlife invite deep reflection and heart-centered presence. A retreat experience that feels both grounding and expansive, leaving you restored, inspired, and deeply aligned.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Retreat 4 -->
+                <div class="retreat-card fade-in">
+                    <div class="retreat-image">
+                        
+                        <img src="destination4.png" alt="Alps retreat destination">
+                    </div>
+                    <div class="retreat-content">
+                        <h3>Future Retreats</h3>
+                        <p class="retreat-location">New destinations coming soon</p>
+                        <p>We're always exploring new transformational destinations for our community. From sacred mountain retreats to serene coastal escapes, our upcoming experiences are designed to help you reconnect with yourself and the world around you. Join our waiting list to be the first to know about new retreat announcements.</p>
+                        <a href="https://www.forlifetravelandcruises.com/form/7Yrit8G1i1" target="_blank" class="btn btn-sage">Insider Retreat Waitlist</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="destinations.html" class="link-arrow">More Destinations <span>→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Host a Retreat Section -->
+    <section class="host" id="host">
+        <div class="container">
+            <div class="host-grid">
+                <div class="host-content fade-in">
+                    <span class="section-label">For Retreat Leaders</span>
+                    <h2>Host Your Own Retreat</h2>
+                    <p>Are you a passionate yoga instructor or dedicated wellness professional eager to host your very own retreat without the burden of managing all the logistics?</p>
+                    <p>We partner with experienced instructors and holistic leaders to bring their retreat vision to life — handling venue selection, accommodations, local experiences, and coordination so you can focus entirely on your participants.</p>
+                    <ul class="host-features">
+                        <li>Full logistical support from planning to execution</li>
+                        <li>Venue sourcing and contract negotiation</li>
+                        <li>Group travel coordination and accommodations</li>
+                        <li>Local experience curation and activities</li>
+                        <li>Marketing support and participant management</li>
+                    </ul>
+                    <a href="https://www.forlifetravelandcruises.com/pages/design-your-signature-retreat-45484" target="_blank" class="btn btn-primary">Plan Your Signature Retreat</a>
+                </div>
+                <div class="host-image fade-in">
+                    <img src="622893249_17933759685152211_2418299412716580351_n.jpg" alt="Yoga retreat leaders">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="testimonial-content fade-in">
+            <blockquote>
+                "Create an experience that allows people to reach the best version of themselves — more connected to their bodies, their spirits, and each other."
+            </blockquote>
+            <cite>— The For Life Travel Philosophy</cite>
+        </div>
+    </section>
+
+    <!-- Client Testimonials Slideshow -->
+    <section class="client-testimonials">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label">What Our Clients Say</span>
+                <h2 class="section-title"><a href="https://www.forlifetravelandcruises.com/ClientTestimonials" target="_blank" style="color: inherit; text-decoration: none;">Real Journeys. Real Transformations.</a></h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-slides">
+                    <div class="testimonial-slide active">
+                        <blockquote>"Clara Cortez was a Fantastic tour operator! Best vacation ever. It was great to have someone at the helm, organizing all the tours, dealing with scheduling, making sure everyone knew exactly what to do, keeping us on track and letting us truly enjoy the experiences."</blockquote>
+                        <cite>— Jeannie S.</cite>
+                    </div>
+                    <div class="testimonial-slide">
+                        <blockquote>"I would like to take this time to thank Clara for providing such an amazing vacation experience. From the booking process to handling our last-minute questions, she was prompt and incredibly helpful. I highly recommend her to anyone looking to plan their next vacation!"</blockquote>
+                        <cite>— Bernice T.</cite>
+                    </div>
+                    <div class="testimonial-slide">
+                        <blockquote>"Clara helped us with an all inclusive trip to Costa Rica. The trip from planning to taking the actual trip was flawless. She helped us make the best choice for our budget. Once we were on our trip, she checked in frequently to make sure everything was going well."</blockquote>
+                        <cite>— Client Review</cite>
+                    </div>
+                    <div class="testimonial-slide">
+                        <blockquote>"Clara gives the best customer service always. I just have to tell her what I am looking for and she exceeds my expectations."</blockquote>
+                        <cite>— Client Review</cite>
+                    </div>
+                </div>
+                <div class="testimonial-dots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="mailto:forlifetravelandretreats@gmail.com?subject=Client Review" class="btn btn-primary">Leave Us a Review</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-centered fade-in">
+                <span class="section-label">Let's Connect</span>
+                <h2 class="contact-title">Ready to Begin Your Journey?</h2>
+                <p class="contact-subtitle">Have questions or not sure where to begin? Reach out and we'll guide you through the next step.</p>
+                
+                <div class="contact-info-row">
+                    <div class="contact-info-item">
+                        <span class="contact-label">PHONE</span>
+                        <a href="tel:7863905449" class="contact-value">786-390-5449</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-label">EMAIL</span>
+                        <a href="mailto:forlifetravelandretreats@gmail.com" class="contact-value">forlifetravelandretreats@gmail.com</a>
+                    </div>
+                </div>
+                
+                <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage btn-large">Schedule a Connection Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>For Life Travel & Retreats</h3>
+                    <p class="footer-tagline">"Create an experience that allows people to reach the best version of themselves"</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/forlifetravelandretreats/" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 32 32" fill="currentColor" width="20" height="20">
+                                <path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
+                                <path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
+                                <path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/claracortezcruiseplanners" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H15V13.9999H17.0762C17.5066 13.9999 17.8887 13.7245 18.0249 13.3161L18.4679 11.9871C18.6298 11.5014 18.2683 10.9999 17.7564 10.9999H15V8.99992C15 8.49992 15.5 7.99992 16 7.99992H18C18.5523 7.99992 19 7.5522 19 6.99992V6.31393C19 5.99091 18.7937 5.7013 18.4813 5.61887C17.1705 5.27295 16 5.27295 16 5.27295C13.5 5.27295 12 6.99992 12 8.49992V10.9999H10C9.44772 10.9999 9 11.4476 9 11.9999V12.9999C9 13.5522 9.44771 13.9999 10 13.9999H12V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/clara-cortez-49965855/" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:forlifetravelandretreats@gmail.com" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#host">Host a Retreat</a></li>
+                        <li><a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank">Schedule a Call</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Destinations</h4>
+                    <ul>
+                        <li><a href="destinations.html#peru">Peru</a></li>
+                        <li><a href="destinations.html#morocco">Morocco</a></li>
+                        <li><a href="destinations.html#puertorico">Puerto Rico</a></li>
+                        <li><a href="destinations.html">More Destinations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:7863905449">786-390-5449</a></li>
+                        <li><a href="mailto:forlifetravelandretreats@gmail.com">Email Us</a></li>
+                        <li>Miami, Florida</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 For Life Travel & Retreats. All rights reserved. | Serving and honoring all regardless of gender, race, or sexual orientation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Testimonials Slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.testimonial-dots .dot');
+        const totalSlides = slides.length;
+
+        function goToSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % totalSlides;
+            goToSlide(next);
+        }
+
+        // Auto-advance every 5 seconds
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>

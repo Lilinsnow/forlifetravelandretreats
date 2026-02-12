@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="For Life Travel & Retreats - Explore our retreat destinations around the world.">
+    <title>More Destinations | For Life Travel & Retreats</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CSS VARIABLES === */
+        :root {
+            --sage-green: #8B9A7D;
+            --sage-dark: #6B7A5D;
+            --warm-brown: #9C8B7A;
+            --dark-brown: #5C4D3C;
+            --cream: #F5F0E8;
+            --sage-light: #A8B89A;
+            --cream-dark: #EBE4D8;
+            --white: #ffffff;
+            --text-dark: #5C4D3C;
+            --text-light: #7A6B5A;
+            --text-muted: #9C8B7A;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Nunito Sans', 'Segoe UI', sans-serif;
+        }
+
+        /* === RESET === */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-brown);
+            line-height: 1.7;
+            background: var(--cream);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--dark-brown);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* === NAVIGATION === */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .nav-logo img {
+            height: 140px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: var(--dark-brown);
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--dark-brown);
+            transition: all 0.3s ease;
+        }
+
+        /* === PAGE HEADER === */
+        .page-header {
+            background: var(--white);
+            padding: 18rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* === VIDEO SHOWCASE === */
+        .video-showcase {
+            background: var(--cream);
+            padding: 4rem 2rem;
+        }
+
+        .video-showcase .section-intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .video-showcase .section-intro h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+            color: var(--dark-brown);
+            margin-bottom: 0.75rem;
+        }
+
+        .video-showcase .section-intro p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .video-grid.multi {
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            max-width: 1100px;
+        }
+
+        .video-facade {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--dark-brown);
+            box-shadow: 0 8px 30px rgba(92, 77, 60, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-facade:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(92, 77, 60, 0.22);
+        }
+
+        .video-facade img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-facade:hover img {
+            opacity: 1;
+        }
+
+        .video-facade .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 2;
+        }
+
+        .video-facade:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: #fff;
+        }
+
+        .video-facade .play-btn::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 12px 0 12px 22px;
+            border-color: transparent transparent transparent var(--sage-green);
+            margin-left: 4px;
+        }
+
+        .video-facade .video-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2.5rem 1.5rem 1.2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            z-index: 2;
+        }
+
+        .video-facade .video-label h3 {
+            font-family: var(--font-display);
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .video-facade .video-label span {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.85rem;
+        }
+
+        .video-facade iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid.multi {
+                grid-template-columns: 1fr;
+            }
+            .video-showcase {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* === DESTINATIONS SECTION === */
+        .destinations {
+            background: var(--white);
+            padding: 4rem 2rem 6rem;
+        }
+
+        .destinations-grid {
+            display: grid;
+            gap: 4rem;
+        }
+
+        .destination-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--cream);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+        }
+
+        .destination-card:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .destination-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .destination-card:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .destination-image {
+            position: relative;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.6s ease;
+        }
+
+        .destination-card:hover .destination-image img {
+            transform: scale(1.05);
+        }
+
+        .destination-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .destination-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-brown);
+        }
+
+        .destination-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* === BUTTONS === */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-sage {
+            background: var(--sage-green);
+            color: var(--white);
+            border: 2px solid var(--sage-green);
+        }
+
+        .btn-sage:hover {
+            background: var(--sage-dark);
+            border-color: var(--sage-dark);
+        }
+
+        /* === BACK LINK === */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--sage-green);
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--sage-dark);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: var(--dark-brown);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            opacity: 0.8;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+            z-index: 10;
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-social a svg {
+            pointer-events: none;
+        }
+
+        .footer-social a:hover {
+            background: var(--warm-brown);
+        }
+
+        .footer-links h4 {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .destination-card {
+                grid-template-columns: 1fr;
+            }
+
+            .destination-card:nth-child(even) {
+                direction: ltr;
+            }
+
+            .destination-image {
+                min-height: 300px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        /* === ANIMATIONS === */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="forlife-logo.png" alt="For Life Travel & Retreats">
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#serve">Who We Serve</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="/#host">Host a Retreat</a></li>
+            <li><a href="https://www.forlifetravelandcruises.com/BlogPosts/" target="_blank">Blog</a></li>
+            <li><a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>More Destinations</h1>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section class="video-showcase">
+        <div class="container">
+            <div class="section-intro fade-in">
+                <h2>Experience the <em>Journey</em></h2>
+                <p>See what awaits you on a For Life retreat — transformation, connection, and unforgettable moments.</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-facade fade-in" data-vimeo-id="1163702948">
+                    <img src="" alt="For Life Travel & Retreats video" loading="lazy">
+                    <div class="play-btn"></div>
+                    <div class="video-label">
+                        <h3>Our Retreats</h3>
+                        <span>Watch the experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations">
+        <div class="container">
+            <div class="destinations-grid">
+                
+                <!-- Peru -->
+                <div class="destination-card fade-in" id="peru">
+                    <div class="destination-image">
+                        <img src="dest-peru.png" alt="Peru retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>Peru Grounding + Transformation</h3>
+                        <p>From the Sacred Valley to the lush Andean regions, Peru offers a rare blend of ancient wisdom, breathtaking landscapes, and refined hospitality. The land carries a grounding, almost reverent energy that naturally invites reflection, healing, and inner stillness. World-class boutique lodges, intentional cuisine rooted in nourishment, and rich cultural heritage—ceremonial traditions, holistic healing practices, and deep connection to the earth—create a retreat experience for profound renewal and soulful awakening, where guests leave truly transformed.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Morocco -->
+                <div class="destination-card fade-in" id="morocco">
+                    <div class="destination-image">
+                        <img src="dest-morocco.png" alt="Morocco retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>Morocco Awaken + Nourishment</h3>
+                        <p>A land of color, spice, and timeless beauty, Morocco awakens the senses and nourishes the soul. From the vibrant streets of Marrakech to the serene sands of the Sahara, discover a balance of energy and stillness, adventure and reflection. Enjoy sunrise yoga overlooking desert dunes, guided meditations in peaceful riads, and quiet reflection in lush gardens filled with fragrant blooms. The rich cultural tapestry—ancient traditions, aromatic cuisine, and artisan crafts—transforms every retreat into a journey of rejuvenation and self-discovery.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Puerto Rico -->
+                <div class="destination-card fade-in" id="puertorico">
+                    <div class="destination-image">
+                        <img src="dest-puertorico.png" alt="Puerto Rico retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>Puerto Rico Presence + Reflection</h3>
+                        <p>A vibrant island sanctuary where tropical beauty, culture, and wellness converge. From sun-kissed beaches and lush rainforests to charming historic towns, every corner invites presence, reflection, and deep restoration. Enjoy sunrise yoga overlooking the ocean, guided meditations in serene gardens, and mindful walks through colorful streets. The island's energy naturally supports nervous system reset and grounded renewal. Boutique oceanfront accommodations and nourishing local cuisine ensure you feel fully cared for, leaving you refreshed, centered, and radiant.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- USA -->
+                <div class="destination-card fade-in">
+                    <div class="destination-image">
+                        <img src="dest-usa.png" alt="USA retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>USA Reflection + Presence</h3>
+                        <p>The United States offers a diverse and inspiring backdrop for transformative retreats—where nature's grandeur meets intentional wellness. From the majestic deserts of Arizona and the awe-inspiring vistas of our National Parks to serene coastlines and hidden mountain sanctuaries, every destination invites reflection, presence, and renewal. Experience sunrise yoga beneath dramatic canyon skies, guided meditation along tranquil lakes, or mindful hikes through some of the world's most iconic landscapes. The vastness and diversity of the land naturally supports grounding, emotional release, and nervous system restoration—creating space for deep personal transformation. Luxury is thoughtfully woven into each retreat. Boutique lodges, curated wellness experiences, and nourishing cuisine provide comfort and care, allowing you to immerse fully in each moment. Our USA retreats balance adventure, reflection, and soulful rejuvenation—leaving you refreshed, inspired, and deeply connected to yourself and the world around you.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Thailand -->
+                <div class="destination-card fade-in">
+                    <div class="destination-image">
+                        <img src="dest-thailand.png" alt="Thailand retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>Thailand Wellness Culture + Nature</h3>
+                        <p>Thailand is a vibrant sanctuary where wellness, culture, and natural beauty converge—making it an ideal destination for transformative retreats. From the turquoise beaches of the south to the lush mountains of the north, Thailand offers diverse landscapes that support both adventure and deep restoration. Move through sun-drenched yoga sessions, jungle treks, or serene meditation by rivers and waterfalls—creating a perfect balance of energy and calm. Thailand's rich heritage of holistic healing, from traditional Thai massage to herbal wellness rituals, elevates every retreat experience. Coupled with luxurious accommodations, thoughtfully curated cuisine, and attentive service, the environment is designed to nurture body, mind, and spirit. Every day is an invitation to reset, recharge, and reconnect—with yourself, your surroundings, and the vibrant energy of a culture that celebrates life, wellness, and mindful living. You'll leave feeling revitalized, grounded, and inspired to carry this energy forward.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Panama -->
+                <div class="destination-card fade-in">
+                    <div class="destination-image">
+                        <img src="dest-panama.png" alt="Panama retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>Panama Balance + Renewal</h3>
+                        <p>Panama offers a rare and beautiful duality, making it an exceptional destination for retreats rooted in balance, renewal, and presence. With the Gulf of Panama offering energizing surf and vibrant coastal life, and the Atlantic side unveiling serene, palm-lined beaches with calm, restorative waters, Panama invites both movement and stillness. This natural contrast allows retreat experiences to flow intuitively—invigorating the body through surf, adventure, and exploration, while nurturing the nervous system with quiet moments of rest, reflection, and ocean-side meditation. Panama's lush landscapes, warm climate, and soulful rhythm create an environment where you feel held and grounded. Thoughtfully designed retreat spaces, nourishing cuisine, and effortless access between coastlines elevate the experience into one of quiet luxury and ease. Here, nature becomes the healer, and the ocean becomes the guide. Panama is not just a destination—it is a sanctuary. A place where energy and serenity coexist, perfect for retreats that restore balance, awaken vitality, and leave you feeling deeply renewed and aligned.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Japan -->
+                <div class="destination-card fade-in">
+                    <div class="destination-image">
+                        <img src="dest-japan.jpeg" alt="Japan retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>Japan Calm + Precision</h3>
+                        <p>Japan is a sanctuary of calm, precision, and timeless beauty—a retreat destination where mindfulness meets elegance. From serene temples and bamboo forests to tranquil coastlines and majestic mountains, Japan offers a landscape that naturally invites reflection, restoration, and inner clarity. Engage in sunrise yoga overlooking misty valleys, restorative meditation in traditional tea gardens, or mindful walks through ancient streets steeped in history. Every experience is thoughtfully designed to honor presence, balance, and the subtle art of slowing down. Luxury and intentional care are seamlessly integrated. Boutique ryokans, exquisite cuisine rooted in seasonal ingredients, and curated wellness practices create an atmosphere of ease and refinement. Japan nurtures both body and spirit—leaving you grounded, refreshed, and inspired by the harmony, beauty, and mindfulness woven into every moment.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Mexico -->
+                <div class="destination-card fade-in">
+                    <div class="destination-image">
+                        <img src="dest-mexico.jpeg" alt="Mexico retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>Mexico Soul + Serenity</h3>
+                        <p>Mexico is a captivating blend of ancient wisdom, vibrant culture, and breathtaking natural beauty—a destination where soul and serenity converge. From the turquoise waters of the Riviera Maya to the mystical energy of Tulum and the sacred cenotes hidden within the jungle, Mexico offers a landscape rich with healing potential and transformative power. Experience sunrise yoga on pristine Caribbean beaches, meditative moments in jungle sanctuaries, or soulful exploration of ancient Mayan ruins steeped in spiritual history. The land carries a profound energy that naturally invites presence, connection, and deep inner renewal. Traditional healing practices, from temazcal ceremonies to holistic spa rituals, elevate each retreat into a journey of restoration. Luxury is woven effortlessly into the experience. Boutique eco-resorts, nourishing farm-to-table cuisine, and barefoot elegance create an atmosphere of ease and intention. Mexico nurtures both adventure and stillness—leaving you renewed, grounded, and deeply connected to the magic that lives within you and all around you.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Italy -->
+                <div class="destination-card fade-in">
+                    <div class="destination-image">
+                        <img src="dest-italy.jpeg" alt="Italy retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>Italy Movement + Mindfulness</h3>
+                        <p>Italy is a destination where history, beauty, and lifestyle merge to create an unforgettable retreat experience. From rolling Tuscan hills to the sparkling Amalfi Coast, every landscape feels intentionally designed to inspire, restore, and delight the senses. This is a place where movement and mindfulness meet culture and cuisine. Imagine yoga at sunrise overlooking vineyards, meditation in centuries-old gardens, or mindful walks through charming villages steeped in timeless charm. Each day blends wellness, reflection, and the art of living beautifully—allowing you to slow down, savor the moment, and reconnect with yourself. Italy's refined accommodations, world-class cuisine, and rich cultural heritage elevate every retreat into a luxurious, soul-nourishing experience. You'll leave feeling deeply restored, inspired, and infused with the timeless elegance and joy that only Italy can offer.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+                <!-- Africa -->
+                <div class="destination-card fade-in">
+                    <div class="destination-image">
+                        <img src="dest-africa.jpg" alt="Africa retreat destination">
+                    </div>
+                    <div class="destination-content">
+                        <h3>Africa Wonder + Grounding</h3>
+                        <p>Africa is a continent of vast beauty and transformative energy—a destination where retreats become experiences of both grounding and wonder. From golden savannas and majestic wildlife to serene coastlines and lush highlands, Africa offers spaces that awaken the senses and restore the spirit. This is a place to reconnect—with nature, with yourself, and with what truly matters. Enjoy sunrise yoga overlooking sweeping landscapes, guided meditations in secluded lodges, or mindful walks through untouched terrain. Each moment is designed to slow the mind, release tension, and invite deep presence. Luxury and comfort are seamlessly woven into every experience. Thoughtfully curated accommodations, nourishing cuisine, and expert guidance allow you to fully immerse in the journey without distraction. Africa's expansive landscapes and soulful energy leave you feeling revitalized, inspired, and deeply connected long after the retreat ends.</p>
+                        <a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank" class="btn btn-sage">Schedule a Call</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>For Life Travel & Retreats</h3>
+                <p class="footer-tagline">"Create an experience that allows people to reach the best version of themselves"</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/forlifetravelandretreats/" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 32 32" fill="currentColor" width="20" height="20">
+                            <path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
+                            <path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
+                            <path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/claracortezcruiseplanners" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H15V13.9999H17.0762C17.5066 13.9999 17.8887 13.7245 18.0249 13.3161L18.4679 11.9871C18.6298 11.5014 18.2683 10.9999 17.7564 10.9999H15V8.99992C15 8.49992 15.5 7.99992 16 7.99992H18C18.5523 7.99992 19 7.5522 19 6.99992V6.31393C19 5.99091 18.7937 5.7013 18.4813 5.61887C17.1705 5.27295 16 5.27295 16 5.27295C13.5 5.27295 12 6.99992 12 8.49992V10.9999H10C9.44772 10.9999 9 11.4476 9 11.9999V12.9999C9 13.5522 9.44771 13.9999 10 13.9999H12V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/clara-cortez-49965855/" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:forlifetravelandretreats@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/#about">About Us</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="/#host">Host a Retreat</a></li>
+                    <li><a href="https://www.forlifetravelandcruises.com/LivePlanner/form" target="_blank">Schedule a Call</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Destinations</h4>
+                <ul>
+                    <li><a href="#peru">Peru</a></li>
+                    <li><a href="#morocco">Morocco</a></li>
+                    <li><a href="#puertorico">Puerto Rico</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:7863905449">786-390-5449</a></li>
+                    <li><a href="mailto:forlifetravelandretreats@gmail.com">Email Us</a></li>
+                    <li>Miami, Florida</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 For Life Travel & Retreats. All rights reserved. | Serving and honoring all regardless of gender, race, or sexual orientation.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Fade in animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Vimeo Facade - lazy load video on click
+        document.querySelectorAll('.video-facade').forEach(facade => {
+            const vimeoId = facade.dataset.vimeoId;
+            // Load Vimeo thumbnail
+            if (vimeoId) {
+                fetch(`https://vimeo.com/api/v2/video/${vimeoId}.json`)
+                    .then(r => r.json())
+                    .then(data => {
+                        const img = facade.querySelector('img');
+                        img.src = data[0].thumbnail_large || data[0].thumbnail_medium;
+                    })
+                    .catch(() => {});
+            }
+            facade.addEventListener('click', () => {
+                if (!vimeoId) return;
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0`;
+                iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+                iframe.allowFullscreen = true;
+                facade.innerHTML = '';
+                facade.style.cursor = 'default';
+                facade.appendChild(iframe);
+            });
+        });
+    </script>
+</body>
+</html>
